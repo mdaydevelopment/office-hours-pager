@@ -1,0 +1,160 @@
+/*Stylesheet for Food Camper
+created by Carl Phillips*/
+
+body {
+    background-color: lightgray;
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar .navbar-default {
+    display: inline-block;
+}
+
+.navbar-brand,
+.navbar-toggler .navbar-toggler-icon {
+    color: white;
+}
+
+li {
+    color: white;
+}
+
+.nav-item {
+    color: white;
+}
+
+.imgSmall {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.account {
+    font-size: 13px;
+}
+
+h1 {
+    background-color: lightgray;
+    color: black;
+    padding: 15px;
+    margin: 35px;
+}
+
+h2 {
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 15px;
+}
+
+h3 {
+    border-style: solid;
+}
+
+.main {
+    background-color: white;
+    margin: auto;
+    margin-top: 200px;
+    align-content: center;
+    width: 600px;
+    height: 300px;
+    border: solid 1px black;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.pickTrip {
+    height: 400px;
+    width: 100%;
+    background-color: bisque;
+}
+
+.makeTrip {
+    height: 475px;
+    width: 100%;
+    padding-top: 35px;
+    background-color: bisque;
+}
+
+.tripInfo {
+    background-color: white;
+    margin: auto;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    border: solid 1px black;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.foodInfo {
+    background-color: white;
+    margin: auto;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    border: solid 1px black;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px black;
+}
+
+a {
+    margin: 15px;
+    font-family: sans-serif;
+    text-align: center;
+    color: black;
+}
+
+.login {
+    text-align: center;
+}
+
+.loginLeft {
+    width: 30%;
+}
+
+.loginRight {
+    width: 65%;
+}
+
+input[type=text],
+select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+input[type=date] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+input[type=submit] {
+    width: 125px;
+    height: 40px;
+    margin-left: 225px;
+}
+
+label {
+    font-family: sans-serif;
+    padding: 5px;
+    margin: auto;
+}
+
+p {
+    margin: 75px;
+}
