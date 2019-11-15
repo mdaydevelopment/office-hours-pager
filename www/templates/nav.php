@@ -1,11 +1,7 @@
 <?php
-    $servername = "serva";
-    $username = "usa";
-    $dbname = "namea";
-    $password = "passworda";
-    
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
+    $conn = mysqli_connect($host, $username, $password, $dbname);
+
     if (!$conn) {
         die("Connection failed: " . mysql_error());
     }

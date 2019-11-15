@@ -1,24 +1,27 @@
---drop database doorbell;
 
-create database doorbell;
+CREATE TABLE users (
+    userID       INT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name         VARCHAR(20)  NOT NULL,
+    isAdmin      BOOLEAN      DEFAULT 0,
+    userpassword VARCHAR(255));
 
-use doorbell;
+CREATE TABLE terms (
+    termID    INT  NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    startdate DATE NOT NULL,
+    enddate   DATE NOT NULL);
 
---drop user 'kelli'@'localhost';
---drop user 'michelle'@'localhost' ;
+CREATE TABLE office_hours (
+    id          INT  NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    userID      INT  NOT NULL,
+    termID      INT  NOT NULL,
+    day_of_week CHAR NOT NULL,
+    hourstart   TIME NOT NULL,
+    hourend     TIME NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (termID) REFERENCES terms(termID));
 
-create user 'kelli'@'localhost' identified by 'password';
-create user 'michelle'@'localhost' identified by 'password';
+CREATE TABLE requests (
+    id     INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(userID));
 
-grant all on doorbell.* to 'kelli'@'localhost';
-grant all on doorbell.* to 'michelle'@'localhost';
-
-create table users (userID int not null primary key auto_increment, name varchar(20) not null, isAdmin Boolean, userpassword varchar(15));
-
-create table terms (termID int not null primary key auto_increment, startdate date, enddate date);
-
-create table office_hours (id int not null primary key auto_increment, userID int not null, 
-termID int not null, day_of_week date, hourstart date, hourend date, foreign key (userID) references users(userID),
-foreign key (termID) references terms(termID));
-
-create table requests (id int not null primary key auto_increment, userID int not null, foreign key (userID) references users(userID));

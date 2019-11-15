@@ -18,7 +18,7 @@
 
 <body>
 
-    <?php include("templates/nav.php"); ?> 
+    <?php include("templates/nav.php"); ?>
 
     <div class="main">
         <form action="login.php" method="post">
