@@ -14,7 +14,7 @@ CREATE TABLE office_hours (
     id          INT  NOT NULL PRIMARY KEY AUTO_INCREMENT,
     userID      INT  NOT NULL,
     termID      INT  NOT NULL,
-    day_of_week CHAR NOT NULL,
+    day_of_week INT  NOT NULL,
     hourstart   TIME NOT NULL,
     hourend     TIME NOT NULL,
     FOREIGN KEY (userID) REFERENCES users(userID),
