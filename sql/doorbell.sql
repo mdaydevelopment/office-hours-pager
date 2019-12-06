@@ -1,6 +1,7 @@
 
 CREATE TABLE users (
     userID       INT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email	 VARCHAR(30)  NOT NULL,
     name         VARCHAR(20)  NOT NULL,
     isAdmin      BOOLEAN      DEFAULT 0,
     userpassword VARCHAR(255));

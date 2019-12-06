@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require "templates/hello-world.php";
     require "templates/nav.php";
 ?>
 
@@ -7,7 +8,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Camper Project</title>
+    <title>Admin Page</title>
     <link href="link/stylishish.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -20,12 +21,15 @@
     <?php include("templates/nav.php"); ?> 
 
     <div class="main">
-        <form action="login.php" method="post">
-            <h2>Login</h2>
-            <p>Username: <input type="username" name="username" id="username" /></p>
+        <form action="createInstructor.php" method="post">
+            <h2>Create Instructor</h2>
+            <p>First Name: <input type="firstname" name="firstname" id="firstname" /></p>
             <br />
-            <p>Password: <input type="password" name="password" id="password" /></p>
-            <input type="submit" name="login" value="Submit">
+            <p>Last Name: <input type="lastname" name="lastname" id="lastname" /></p>
+            <br />
+            <p>Email: <input type="email" name="email" id="email" /></p>
+            <br />
+            <input type="submit" name="createInstructor" value="Submit">
         </form>
     </div>
 

@@ -1,14 +1,19 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
+    //contains database info
+    include("../config/config.php");
+    
+    //connects to the database
     $conn = mysqli_connect($host, $username, $password, $dbname);
-
+    
     if (!$conn) {
-        die("Connection failed: " . mysql_error());
+        die("Connection failed: " . mysqli_error());
     }
 
+    //gets the users account type for the nav bar
     $accountType=mysqli_query($conn, "SELECT AccountType FROM Users WHERE Username='" . $_SESSION['username'] . "';");
     $row = mysqli_fetch_assoc($accountType);
 
+    //decides which nav bar to display, shows admin info if account type corresponds
     if($row['AccountType'] == 1) {
     echo '<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="index.php">Home</a> <br />
