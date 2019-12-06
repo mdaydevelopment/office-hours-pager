@@ -1,6 +1,6 @@
 <?php
     //contains database info
-    include("../config/config.php");
+    include("config/config.php");
     
     //connects to the database
     $conn = mysqli_connect($host, $username, $password, $dbname);
