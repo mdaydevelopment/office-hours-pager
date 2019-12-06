@@ -4,6 +4,7 @@
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       $day = mysqli_real_escape_string($db,$_POST['weekday']);
+      $term = mysqli_real_escape_string($db,$_POST['termCode']);
 
       $sql = "SELECT userID FROM users WHERE name = '$myusername' and userpassword = '$mypassword'";
       $result = mysqli_query($db,$sql);
@@ -22,14 +23,30 @@
 ?>
 <html>
    <head>
-      <title>Welcome </title>
+      <title>Welcome Page</title>
       <style>
          body { font-family:sans-serif; }
          label { font-weight:bold; width:100px; }
          .box { border:#666666 solid 1px; }
       </style>
+      <script>
+	      //This Script will create Term Codes and a function to populate the term code drop down selection
+         function getCurrentYear()
+	      {
+		      var todaysDate = new Date();		//create a date object with current date
+		      return todaysDate.getFullYear();	//get the four digit year from the current date
+         }
+         let termCode = [getCurrentYear() + "01", getCurrentYear() + "02", getCurrentYear() + "03", getCurrentYear() + 1 + "01", getCurrentYear() + 1 + "02", getCurrentYear() + 1 + "03"];
+         
+         function createTermCodeDropdown() {
+	         for (let i=0; i < termCode.length; i++){
+		         let output = ("<option value='" + termCode[i]+ "'>" + termCode[i] + "</option>");
+			      document.querySelector("#termCode").innerHTML += output; 
+				}
+	      }
+      </script>
    </head>
-   <body>
+   <body onLoad="createTermCodeDropdown()">
       <h1>Welcome <?php echo $login_user; ?></h1> 
       <a href = "logout.php">Sign Out</a>
       <div align="center">
@@ -37,6 +54,10 @@
             <div style="background-color:#333333; color:#FFFFFF; padding:3px;"><b>Office Hours Input</b></div>
             <div style="margin:30px">
                <form action="" method="post">
+                  <label>Term Code: </label>
+                  <select name="termCode" id="termCode" required class="box">
+                     <option value="">Please select a term</option>
+                  </select></br></br>
                   <label>Day of Week: </label>
                   <select name="weekday" required class="box">
                       <option value="Monday" selected>Monday</option>

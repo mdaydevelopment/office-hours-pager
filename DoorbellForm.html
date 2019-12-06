@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Doorbell HTML Form</title>
+<script>
+	//This Script will create Term Codes and a function to populate the term code drop down selection
+function getCurrentYear()
+	{
+		var todaysDate = new Date();		//create a date object with current date
+		
+		return todaysDate.getFullYear();	//get the four digit year from the current date
+	}
+let termCode = [getCurrentYear() + "01", getCurrentYear() + "02", getCurrentYear() + "03", getCurrentYear() + 1 + "01", getCurrentYear() + 1 + "02", getCurrentYear() + 1 + "03"];
+	
+function createTermCodeDropdown() {
+	for (let i=0; i < termCode.length; i++){
+		let output = ("<option value='" + termCode[i]+ "'>" + termCode[i] + "</option>");
+			document.querySelector("#termCode").innerHTML += output; 
+					}
+	}
+	
+</script>
+	
+<script>
+//This Script will make an array of days of the week and a function to populate the days of the week drop down menu
+let dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+function createDayOfWeekDropdown() {
+	for (let i=0; i < dayOfWeek.length; i++){
+		let output = ("<option value='" + dayOfWeek[i] + "'>" + dayOfWeek[i] + "</option>");
+		document.querySelector("#dayOfWeek").innerHTML += output; 
+	}
+}
+
+</script>
+</head>
+
+<body onLoad="createTermCodeDropdown(), createDayOfWeekDropdown()">
+	<form method="post" action="#">
+		<div name="term" id="term">
+			<label>Term:
+				<select name="termCode" id="termCode">
+					<option value="">Please Select a Term</option>
+				</select>
+			</label>
+		</div>
+		
+		<div name="day" id="day">
+			<label>Day of the Week:
+				<select name="dayOfWeek" id="dayOfWeek">
+					<option value="">Please Select a Day</option>
+				</select>
+			</label>
+		</div>
+		
+		<div name="start" id="start">
+			<label>Start Time:
+				<input type="time">
+			</label>
+		</div>
+		
+		<div name="end" id="end">
+			<label>End Time:
+				<input type="time">
+			</label>
+		</div>
+		
+	</form>
+</body>
+</html>
