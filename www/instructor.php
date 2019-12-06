@@ -4,6 +4,7 @@
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       $day = mysqli_real_escape_string($db,$_POST['weekday']);
+      $term = mysqli_real_escape_string($db,$_POST['termCode']);
 
       $sql = "SELECT userID FROM users WHERE name = '$myusername' and userpassword = '$mypassword'";
       $result = mysqli_query($db,$sql);
